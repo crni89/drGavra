@@ -29,15 +29,14 @@
 
             <!-- Glavni navigacioni meni (sakriven na manjim ekranima) -->
             <div
-                class="hidden sm:flex flex-row items-center justify-center space-x-4 sm:space-x-8 lg:space-x-40 xl:space-x-24">
+                class="hidden sm:flex flex-row items-center justify-center space-x-4 sm:space-x-8 lg:space-x-48 xl:space-x-36">
                 <div v-for="section in sections" :key="section.id" class="relative group"
                     @click="scrollToSection(section.id)">
                     <div class="bg-nav-icon p-3 rounded-full hover:bg-hover-nav cursor-pointer">
                         <font-awesome-icon :icon="section.icon" class="text-white text-lg" />
                     </div>
                     <!-- Tooltip za ime sekcije -->
-                    <span
-                        class="absolute left-16 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
+                    <span class="absolute left-12 z-10 w-32 text-center top-1/2 transform -translate-y-1/2 bg-gray-800 text-white text-sm px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
                         {{ section.name }}
                     </span>
                 </div>
