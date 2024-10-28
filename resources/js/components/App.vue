@@ -51,15 +51,15 @@
             <!-- Dropdown meni za mobilne uređaje -->
             <div v-if="menuOpen"
                 class="absolute top-14 pl-5 left-0 w-full bg-gray-300 flex flex-col pb-5 items-start space-y-7 sm:hidden">
-                <div v-for="section in sections" :key="section.id" class="flex items-center space-x-2"
+                <div v-for="section in sections" :key="section.id" class="flex items-center space-x-2 w-full"
                     @click="scrollToSection(section.id); toggleMenu()">
                     <div class="bg-nav-icon p-3 rounded-full">
                         <font-awesome-icon :icon="section.icon" class="text-white text-lg" />
                     </div>
                     <span class="text-gray-800">{{ section.name }}</span>
                 </div>
-                <country-flag country="rs" size="normal" @click="changeLanguage('sr')" />
-                <country-flag country="gb" size="normal" @click="changeLanguage('en')" />
+                <country-flag country="rs" size="big" @click="changeLanguage('sr')" />
+                <country-flag country="gb" size="big" @click="changeLanguage('en')" />
             </div>
         </nav>
 
@@ -68,7 +68,7 @@
             <!-- About Section -->
             <section id="section1" class="h-screen flex flex-col lg:flex-row items-center justify-center">
                 <!-- Pozadinski kontejner -->
-                <div class="home-container w-full lg:w-full h-screen -z-10 absolute opacity-40"></div>
+                <div class="home-container h-screen lg:w-full w-full -z-10 absolute opacity-40"></div>
 
                 <!-- Slika (prilagodljiva na manjim ekranima) -->
                 <div class="w-2/3 lg:w-1/3 2xl:w-1/3 mb-8 p-5 lg:mb-0 lg:pl-20">
@@ -90,7 +90,7 @@
 
             <section id="section2" class="h-screen flex flex-col justify-center items-center text-white">
                 <!-- Pozadinski kontejner -->
-                <div class="about-container w-full h-screen -z-10 absolute opacity-80"></div>
+                <div class="about-container w-full lg:w-full h-screen -z-10 absolute opacity-80"></div>
 
                 <!-- Naslov sekcije -->
                 <div class="text-2xl lg:text-3xl inline-flex items-center lg:mt-0 justify-center mb-5 lg:mb-20 h-9">
@@ -118,7 +118,7 @@
 
             <section id="section3" class="h-screen flex flex-col lg:flex-row items-center justify-center text-white">
                 <!-- Pozadinski kontejner -->
-                <div class="education-container w-full h-screen -z-10 absolute opacity-80"></div>
+                <div class="education-container w-full lg:w-full h-screen -z-10 absolute opacity-80"></div>
 
                 <!-- Slika -->
                 <div class="w-fit lg:w-1/2 lg:mt-20 mt-0 px-4">
@@ -168,10 +168,9 @@
                 </div>
             </section>
 
-            <section id="section4"
-                class="h-screen flex flex-col lg:flex-row justify-center items-center text-white relative">
+            <section id="section4" class="h-screen flex flex-col lg:flex-row justify-center items-center text-white relative">
                 <!-- Pozadinski kontejner -->
-                <div class="interests-container w-full h-screen -z-10 absolute opacity-90"></div>
+                <div class="interests-container w-full lg:w-full h-screen -z-10 absolute opacity-90"></div>
 
                 <!-- Tekstualni deo -->
                 <div class="w-full lg:w-1/2 px-10 whitespace-break-spaces lg:mt-0 flex flex-col justify-center">
@@ -220,7 +219,7 @@
 
             <section id="section5" class="h-screen flex flex-col lg:flex-row justify-center items-center relative">
                 <!-- Pozadinski kontejner -->
-                <div class="statistic-container w-full h-screen -z-10 absolute opacity-90"></div>
+                <div class="statistic-container w-full lg:w-full h-screen -z-10 absolute opacity-90"></div>
 
                 <!-- Slika -->
                 <div class="w-full lg:w-1/2 flex justify-center px-4 lg:pl-16 mt-10 lg:mt-0">
@@ -258,9 +257,8 @@
             <!-- Contact Section -->
             <section id="section6" class="h-screen flex justify-center items-center">
                 <div class="contact-container w-full h-screen -z-10 absolute opacity-80"></div>
-                <div class="flex flex-col lg:flex-row lg:items-center lg:w-full h-full mt-32 lg:mt-0">
-                    <div
-                        class="lg:w-1/4 w-60 lg:h-2/3 2xl:h-3/5 xl:h-3/5 mt-6 items-start p-5 mx-auto bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:w-full mt-10 lg:mt-0">
+                    <div class="lg:w-1/4 w-60 lg:h-2/3 2xl:h-3/5 xl:h-3/5 mt-1 lg:mt-6 items-start p-5 mx-auto bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
                         <div>
                             <h1 class="text-gray-800 lg:text-3xl 2xl:text-4xl font-extrabold">{{ $t('contact') }} <br>
                                 <span class="text-lg lg:text-3xl 2xl:text-xl underline"> {{ $t('contacnt_text') }}
@@ -306,28 +304,28 @@
                         </div>
                     </div>
                     <div
-                        class="lg:w-1/3 w-60 h-2/4 lg:h-2/3 2xl:h-3/5 xl:h-3/5 mt-5 items-start p-5 mx-auto bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
+                        class="lg:w-1/3 w-60 h-auto lg:h-2/3 2xl:h-3/5 xl:h-3/5 mt-5 items-start p-5 mx-auto bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
                         <h1 class="text-gray-800 lg:mb-10 mb-5 lg:text-3xl font-extrabold">{{ $t('send_message') }}</h1>
                         <div class="ml-auto space-y-4">
                             <input type="text" :placeholder="$t('name_sur')" v-model="name"
                                 class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500"
                                 :class="error['name'] ? 'border-red-500' : ''" />
-                            <span v-if="error['name']" class="text-red-500 text-xs">{{ error['name'] }}</span>
+                            <span v-if="error['name']" class="text-red-500 lg:text-xs text-xs tracking-tight lg:tracking-normal">{{ error['name'] }}</span>
 
                             <input type="email" placeholder="Email" v-model="email"
                                 class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500"
                                 :class="error['email'] ? 'border-red-500' : ''" />
-                            <span v-if="error['email']" class="text-red-500 text-xs">{{ error['email'] }}</span>
+                            <span v-if="error['email']" class="text-red-500 lg:text-xs text-xs">{{ error['email'] }}</span>
 
                             <input type="text" :placeholder="$t('header')" v-model="subject"
                                 class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500"
                                 :class="error['subject'] ? 'border-red-500' : ''" />
-                            <span v-if="error['subject']" class="text-red-500 text-xs">{{ error['subject'] }}</span>
+                            <span v-if="error['subject']" class="text-red-500 lg:text-xs text-xs">{{ error['subject'] }}</span>
 
                             <textarea :placeholder="$t('message')" :rows="textArea" v-model="message"
                                 class="lg:w-full w-full text-gray-800 rounded-md lg:px-4 px-7 border text-sm pt-2.5 outline-blue-500"
                                 :class="error['message'] ? 'border-red-500' : ''"></textarea>
-                            <span v-if="error['message']" class="text-red-500 text-xs">{{ error['message'] }}</span>
+                            <span v-if="error['message']" class="text-red-500 lg:text-xs text-xs">{{ error['message'] }}</span>
 
                             <button type="button"
                                 class="text-white bg-nav-icon hover:bg-hover-nav rounded-md text-sm px-4 lg:py-3 py-1 lg:w-full w-full !mt-6"
