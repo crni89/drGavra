@@ -47,7 +47,12 @@ const messages = {
         cell: 'Mobilni',
         success: 'Uspešno poslat mail',
         error: 'Greška prilikom slanja mail-a',
-        contacnt_text: 'Opšta bolnica Avala'
+        contacnt_text: 'Opšta bolnica Avala',
+        name_required: 'Polje "Ime i prezime" nije popunjeno',
+        email_required: 'Polje "Email" nije popunjeno',
+        email_invalid: 'Format nije validan',
+        subject_required: 'Polje "Naslov" nije popunjeno',
+        message_required: 'Polje "Poruka" nije popunjeno'
     },
     en: {
         home: 'Home',
@@ -95,7 +100,12 @@ const messages = {
         cell: 'Cell phone',
         success: 'Mail is successfully sent',
         error: 'Error while sending mail',
-        contacnt_text: 'General hospital Avala'
+        contacnt_text: 'General hospital Avala',
+        name_required: 'Field "Full name" must be filled out',
+        email_required: 'Field "Email" must be filled out',
+        email_invalid: 'Format is not valid',
+        subject_required: 'Field "Subject" must be filled out',
+        message_required: 'Field "Message" must be filled out'
     }
 };
 

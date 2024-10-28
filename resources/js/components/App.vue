@@ -28,7 +28,8 @@
             </div>
 
             <!-- Glavni navigacioni meni (sakriven na manjim ekranima) -->
-            <div class="hidden sm:flex flex-row items-center justify-center space-x-4 sm:space-x-8 lg:space-x-40 xl:space-x-24">
+            <div
+                class="hidden sm:flex flex-row items-center justify-center space-x-4 sm:space-x-8 lg:space-x-40 xl:space-x-24">
                 <div v-for="section in sections" :key="section.id" class="relative group"
                     @click="scrollToSection(section.id)">
                     <div class="bg-nav-icon p-3 rounded-full hover:bg-hover-nav cursor-pointer">
@@ -48,8 +49,10 @@
             </div>
 
             <!-- Dropdown meni za mobilne uređaje -->
-            <div v-if="menuOpen"class="absolute top-14 pl-5 left-0 w-full bg-gray-300 flex flex-col pb-5 items-start space-y-7 sm:hidden">
-                <div v-for="section in sections" :key="section.id" class="flex items-center space-x-2" @click="scrollToSection(section.id); toggleMenu()">
+            <div v-if="menuOpen"
+                class="absolute top-14 pl-5 left-0 w-full bg-gray-300 flex flex-col pb-5 items-start space-y-7 sm:hidden">
+                <div v-for="section in sections" :key="section.id" class="flex items-center space-x-2"
+                    @click="scrollToSection(section.id); toggleMenu()">
                     <div class="bg-nav-icon p-3 rounded-full">
                         <font-awesome-icon :icon="section.icon" class="text-white text-lg" />
                     </div>
@@ -259,7 +262,9 @@
                     <div
                         class="lg:w-1/4 w-60 lg:h-2/3 2xl:h-3/5 xl:h-3/5 mt-6 items-start p-5 mx-auto bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
                         <div>
-                            <h1 class="text-gray-800 lg:text-3xl 2xl:text-4xl font-extrabold">{{ $t('contact') }} <br> <span class="text-lg lg:text-3xl 2xl:text-xl underline"> {{ $t('contacnt_text') }} </span></h1>
+                            <h1 class="text-gray-800 lg:text-3xl 2xl:text-4xl font-extrabold">{{ $t('contact') }} <br>
+                                <span class="text-lg lg:text-3xl 2xl:text-xl underline"> {{ $t('contacnt_text') }}
+                                </span></h1>
 
                             <div class="lg:mt-12">
                                 <ul class="mt-4 lg:space-y-20 2xl:lg:space-y-20 space-y-5">
@@ -304,15 +309,27 @@
                         class="lg:w-1/3 w-60 h-2/4 lg:h-2/3 2xl:h-3/5 xl:h-3/5 mt-5 items-start p-5 mx-auto bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md">
                         <h1 class="text-gray-800 lg:mb-10 mb-5 lg:text-3xl font-extrabold">{{ $t('send_message') }}</h1>
                         <div class="ml-auto space-y-4">
-                            <input type='text' :placeholder="$t('name_sur')" v-model="name"
-                                class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500" />
-                            <input type='email' placeholder='Email' v-model="email"
-                                class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500" />
-                            <input type='text' :placeholder="$t('header')" v-model="subject"
-                                class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500" />
+                            <input type="text" :placeholder="$t('name_sur')" v-model="name"
+                                class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500"
+                                :class="error['name'] ? 'border-red-500' : ''" />
+                            <span v-if="error['name']" class="text-red-500 text-xs">{{ error['name'] }}</span>
+
+                            <input type="email" placeholder="Email" v-model="email"
+                                class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500"
+                                :class="error['email'] ? 'border-red-500' : ''" />
+                            <span v-if="error['email']" class="text-red-500 text-xs">{{ error['email'] }}</span>
+
+                            <input type="text" :placeholder="$t('header')" v-model="subject"
+                                class="lg:w-full w-full text-gray-800 rounded-md lg:py-2.5 px-4 border text-sm outline-blue-500"
+                                :class="error['subject'] ? 'border-red-500' : ''" />
+                            <span v-if="error['subject']" class="text-red-500 text-xs">{{ error['subject'] }}</span>
+
                             <textarea :placeholder="$t('message')" :rows="textArea" v-model="message"
-                                class="lg:w-full w-full text-gray-800 rounded-md lg:px-4 px-7 border text-sm pt-2.5 outline-blue-500"></textarea>
-                            <button type='button'
+                                class="lg:w-full w-full text-gray-800 rounded-md lg:px-4 px-7 border text-sm pt-2.5 outline-blue-500"
+                                :class="error['message'] ? 'border-red-500' : ''"></textarea>
+                            <span v-if="error['message']" class="text-red-500 text-xs">{{ error['message'] }}</span>
+
+                            <button type="button"
                                 class="text-white bg-nav-icon hover:bg-hover-nav rounded-md text-sm px-4 lg:py-3 py-1 lg:w-full w-full !mt-6"
                                 @click="sendEmail()">{{ $t('send') }}</button>
                         </div>
@@ -343,8 +360,7 @@ import Facebook from 'vue-material-design-icons/Facebook.vue';
 import Linkedin from 'vue-material-design-icons/Linkedin.vue';
 import Instagram from 'vue-material-design-icons/Instagram.vue';
 import CellPhone from 'vue-material-design-icons/CellPhone.vue';
-import Spinner from '../components/Spinner.vue';
-import { FwbSpinner} from 'flowbite-vue'
+import { FwbSpinner } from 'flowbite-vue'
 
 export default {
     components: {
@@ -375,6 +391,12 @@ export default {
             iconSize2: this.getIconSize2(),
             textArea: this.getTextArea(),
             loading: false,
+            error: {
+                // name: '',
+                // email: '',
+                // subject: '',
+                // message: '',
+            }
         };
     },
     computed: {
@@ -391,6 +413,10 @@ export default {
     },
     methods: {
         sendEmail() {
+            if (!this.validate()) {
+                scrollToFirstError();
+                return
+            }
             this.loading = true;
             axios.post('/api/email', {
                 name: this.name,
@@ -410,6 +436,42 @@ export default {
                     icon: 'error'
                 });
             })
+        },
+        validate() {
+            this.error = {}; // Resetuj greške
+            let isValid = true;
+
+            if (!this.name) {
+                this.error['name'] = this.$t('name_required');
+                isValid = false;
+            }
+            if (!this.email) {
+                this.error['email'] = this.$t('email_required');
+                isValid = false;
+            } else if (!this.isValidEmail(this.email)) {
+                this.error['email'] = this.$t('email_invalid');
+                isValid = false;
+            }
+            if (!this.subject) {
+                this.error['subject'] = this.$t('subject_required');
+                isValid = false;
+            }
+            if (!this.message) {
+                this.error['message'] = this.$t('message_required');
+                isValid = false;
+            }
+
+            return isValid;
+        },
+        isValidEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        },
+        scrollToFirstError() {
+            const firstErrorField = document.querySelector('.border-red-500');
+            if (firstErrorField) {
+                firstErrorField.scrollIntoView({ behavior: 'smooth' });
+            }
         },
         getIconSize() {
             return window.innerWidth >= 1024 ? 60 : 30;
@@ -538,12 +600,12 @@ export default {
 </script>
 
 <style scoped>
-
 @keyframes slideIn {
     from {
         transform: translateX(100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
