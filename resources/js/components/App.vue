@@ -426,6 +426,10 @@ export default {
                     text: this.$t('success'),
                     icon: 'success'
                 });
+                this.name = '';
+                this.email = '';
+                this.subject = '';
+                this.message = '';
             }).catch((error) => {
                 this.loading = false;
                 this.$swal({
