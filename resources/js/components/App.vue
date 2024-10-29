@@ -190,6 +190,7 @@
                             <li>{{ $t('expertes_text6') }}</li>
                             <li>{{ $t('expertes_text7') }}</li>
                             <li>{{ $t('expertes_text8') }}</li>
+                            <li>{{ $t('expertes_text9') }}</li>
                         </ul>
                     </div>
 
