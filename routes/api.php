@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/email', function () {Mail::to('info@bolnicaavala.rs')->send(new Contact());});
+Route::post('/email', function () {Mail::to('igor.crnogorcevic@ibis-solutions.rs')->send(new Contact());});

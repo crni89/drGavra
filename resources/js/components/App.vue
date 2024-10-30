@@ -425,6 +425,7 @@ export default {
                 this.loading = false;
                 this.$swal({
                     text: this.$t('success'),
+                    width: '25%',
                     icon: 'success'
                 });
                 this.name = '';
