@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Stranica Dr Gordana Gavrilovica, Posetite zvaničnu stranicu za više informacija.">
         <meta name="google-site-verification" content="RdQ-gqrkop58NAs0wVT6lMpsjzRSS9U_ZLZehrGvlSk">
-        <meta name="keywords" content="dr Gordan Gavrilović, dr Gavrilović, dr gordan, dr gavrilovic, dr gordan gavrilovic, medicinske usluge, stručni saveti">
+        <meta name="keywords" content="dr gordan gavrilović, dr gavrilović, dr gordan, dr gavrilovic, dr gordan gavrilovic, medicinske usluge, stručni saveti, dr gordan gavrilovic biografija, gordan gavrilovic">
 
 
         <title>DrGavrilovic</title>
